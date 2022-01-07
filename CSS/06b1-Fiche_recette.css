@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+     box-sizing: border-box;
+     color: #474544;
+  }
+
+
+
+  #btn-return {
+    /* display: flex; */
+    position: fixed;
+    top: 0 ;
+    z-index: 1;
+    cursor: pointer;
+    margin-top: 120px;
+  }
+
+
+  main{
+    margin-top: 220px;
+    margin-left: 10%;
+    overflow:hidden;
+  }
+
+
+
+  h1{
+      margin-bottom: 70px;
+      font-family: 'Allison', cursive;
+      font-size: 70px;
+      margin-left: 10px;
+  }
+
+  .info_recipe{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 700px;
+font-size: 20px;
+  }
+
+
+
+  /* --------------bloc recette----------  */
+
+
+.recipe {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 150px;
+}
+
+h2 {
+    margin-bottom: 30px;
+    font-size: 35px;
+}
+
+
+.deroul-recipe{
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      height: 250px;
+      background-color: #b4aaa150;
+      justify-content: space-evenly;
+  }
+.time-prepa{
+      display: flex;
+      justify-content: flex-start;
+      margin-left: 20px;
+  }
+p{
+      margin-top: 10px;
+      margin-left: 20px;
+  }
+.difficult{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.price{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.list-ingredients{
+    font-size: 20px;
+}
+
+  .container-recipe-global{
+      display: flex;
+      justify-content: flex-start;
+  }
+
+  .container_img {
+    display: flex;
+    align-items: center;
+    margin-top: 200px;
+    margin-left: 300px;
+  }
+
+  .container_prepa {
+      /* margin-top: 100px; */
+      font-size: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      height: 40em;
+  }

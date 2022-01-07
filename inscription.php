@@ -1,0 +1,105 @@
+<?php
+
+$pdo = require_once './database.php';
+$errors = '';
+
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $_input = filter_input_array(INPUT_POST, [
+        'firstname' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
+        'lastname' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
+        'adress' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
+        'phone' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
+        'pseudo' => FILTER_SANITIZE_SPECIAL_CHARS,
+        'email' => FILTER_SANITIZE_EMAIL
+    ]);
+
+    $firstname = $_input['firstname'] ?? '';
+    $lastname = $_input['lastname'] ?? '';
+    $adress = $_input['adress'] ?? '';
+    $phone = $_input['phone'] ?? '';
+    $pseudo = $_input['pseudo'] ?? '';
+    $email = $_input['email'] ?? '';
+    $password = $_POST['password'] ?? '';
+
+if (!$firstname || !$lastname || !$adress || !$phone || !$pseudo || !$email || !$password) {
+    $errors = "champs obligatoires";
+} else {
+    $hashPassword = password_hash($password, PASSWORD_ARGON2I);
+    $statement = $pdo->prepare('INSERT INTO users VALUES(
+        DEFAULT,
+        :firstname,
+        :lastname,
+        :adress,
+        :phone,
+        :pseudo,
+        :email,
+        :password
+    )');
+
+        $statement->bindvalue(':firstname', $firstname);
+        $statement->bindvalue(':lastname', $lastname);
+        $statement->bindvalue(':adress', $adress);
+        $statement->bindvalue(':phone', $phone);
+        $statement->bindvalue(':pseudo', $pseudo);
+        $statement->bindvalue(':email', $email);
+        $statement->bindvalue(':password', $hashPassword);
+        $statement->execute();
+
+        header('Location: /connexion.php');
+
+}
+}
+
+
+
+
+?>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/Inscription.css">
+    <link rel="stylesheet" href="/CSS/Header-Footer.css"> 
+    <title>Inscription</title>
+</head>
+<body>
+<?php require_once'includes/header.php' ?>
+<div class="Title-subscribe">
+    <h2>Hello, Friend!</h2>
+    <p>Entre tes données personnelle et commence la journée avec nous ...</p>				
+</div>
+    
+
+<div class="container" id="container">
+	<div class="form-container sign-up-container" id="form-container">
+		<form action="/inscription.php" method="POST">
+			<h1>Créer un compte</h1>
+			
+                <input type="text" placeholder="firstname" name="firstname"><br><br>
+                <input type="text" placeholder="lastname" name="lastname"><br><br>
+                <!-- <input type="date" placeholder="birthday" name="birthday"><br><br> -->
+                <input type="text" placeholder="adress" name="adress"><br><br>
+                <input type="text" placeholder="phone" name="phone"><br><br>
+                <input type="text" placeholder="pseudo" name="pseudo"><br><br>
+                <input type="text" placeholder="email" name="email"><br><br>
+                <input type="password" placeholder="password" name="password"><br><br>
+
+                <?php if($errors) : ?>
+                    <h1 style="color:red"><?=$errors ?></h1>
+                <?php endif; ?>
+        
+			<button>Sign Up</button>
+		</form>
+	</div>
+    </div>
+    <?php require_once'includes/footer.php' ?>
+</body>
+
+</html>
+

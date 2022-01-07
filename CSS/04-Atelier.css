@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+      
+  }
+  
+main{
+    margin-top: 200px;
+    margin-bottom: 100px;
+    font-size: 20px;
+}
+
+.facebook {
+    display: flex;
+    justify-content: end;
+    margin-right: 50px;
+}
