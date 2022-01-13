@@ -25,7 +25,7 @@ if (!$firstname || !$lastname || !$adress || !$phone || !$pseudo || !$email || !
     $errors = "champs obligatoires";
 } else {
     $hashPassword = password_hash($password, PASSWORD_ARGON2I);
-    $statement = $pdo->prepare('INSERT INTO users VALUES(
+    $statement = $pdo->prepare('INSERT INTO utilisateur VALUES(
         DEFAULT,
         :firstname,
         :lastname,
@@ -74,29 +74,30 @@ if (!$firstname || !$lastname || !$adress || !$phone || !$pseudo || !$email || !
     <h2>Hello, Friend!</h2>
     <p>Entre tes données personnelle et commence la journée avec nous ...</p>				
 </div>
-    
+
+<div class="crea_count_user">
+    <h1>Créer un compte</h1><br>
+</div>
 
 <div class="container" id="container">
-	<div class="form-container sign-up-container" id="form-container">
-		<form action="/inscription.php" method="POST">
-			<h1>Créer un compte</h1>
+	<!-- <div class="form-container sign-up-container" id="form-container"> -->
+		<form class="registration" action="/inscription.php" method="POST">
 			
-                <input type="text" placeholder="firstname" name="firstname"><br><br>
-                <input type="text" placeholder="lastname" name="lastname"><br><br>
-                <!-- <input type="date" placeholder="birthday" name="birthday"><br><br> -->
-                <input type="text" placeholder="adress" name="adress"><br><br>
-                <input type="text" placeholder="phone" name="phone"><br><br>
-                <input type="text" placeholder="pseudo" name="pseudo"><br><br>
-                <input type="text" placeholder="email" name="email"><br><br>
-                <input type="password" placeholder="password" name="password"><br><br>
+                <input type="text" placeholder="firstname" name="firstname"><br>
+                <input type="text" placeholder="lastname" name="lastname"><br>
+                <input type="text" placeholder="adress" name="adress"><br>
+                <input type="text" placeholder="phone" name="phone"><br>
+                <input type="text" placeholder="pseudo" name="pseudo"><br>
+                <input type="text" placeholder="email" name="email"><br>
+                <input type="password" placeholder="password" name="password"><br>
 
                 <?php if($errors) : ?>
                     <h1 style="color:red"><?=$errors ?></h1>
                 <?php endif; ?>
         
-			<button>Sign Up</button>
+			<button>S'inscrire</button>
 		</form>
-	</div>
+	<!-- </div> -->
     </div>
     <?php require_once'includes/footer.php' ?>
 </body>

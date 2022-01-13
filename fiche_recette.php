@@ -1,43 +1,24 @@
 <?php
-require './isLoggedIn.php';
 
-$user = isLoggedIn();
 
-if (!$user) {
-    header('Location: /connexion.php');
-}
-
-//--------------------------------------------------------------------------- partie commentaires
-
-$pdo = require './database.php';
+$pdo = require_once './database.php';
 
 $statement = $pdo->prepare('SELECT * FROM commentaire');
 $statement->execute();
+$commentStatement = $pdo->prepare('SELECT * FROM commentaire natural join session');
+$commentStatement->execute();
+
 $commentaires = $statement->fetchAll();
-
-$statementUser = $pdo->prepare('SELECT * FROM utilisateur');
-$statementUser->execute();
-$users= $statementUser->fetchAll();
-
-$statementRecipe = $pdo->prepare('SELECT * FROM recettes');
-$statementRecipe->execute();
-$recipe= $statementRecipe->fetchAll();
-
-
 
 $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
 $stateCreate = $pdo->prepare('
 INSERT INTO commentaire (
    titre,
-   commentaire,
-   idUser,
-   idrecette
+   commentaire
    ) VALUES (
        :titre,
-       :commentaire,
-       :idUser,
-       :idrecette
+       :commentaire
        )
 ');
 
@@ -46,13 +27,13 @@ UPDATE commentaire
 SET
 titre=:titre
 commentaire=:commentaire
-
 WHERE idcommentaire=:id
 ');
 
 $stateRead = $pdo->prepare('SELECT * FROM commentaire WHERE idcommentaire=:id' );
 
 
+// $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $id = $_GET['id'] ?? '';
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
@@ -64,59 +45,39 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
        'commentaire' => [
            'filter' => FILTER_SANITIZE_STRING,
            'flags' => FILTER_FLAG_NO_ENCODE_QUOTES
-       ],
-      
+       ]
    ]);  
 
    $titre = $_POST['titre'] ?? '';
    $commentaire = $_POST['commentaire'] ?? '';
-  
 
    if ($id) {
        $commentaires['titre'] = $titre;
-       $commentaires['commentaire'] = $commentaire;      
+       $commentaires['commentaire'] = $commentaire;
        $stateUpdate->bindValue(':titre',  $commentaires['titre']);
-       $stateUpdate->bindValue(':commentaire',  $commentaires['commentaire']);      
+       $stateUpdate->bindValue(':commentaire',  $commentaires['commentaire']);
+       $stateUpdate->bindValue(':id',  $id);
        $stateUpdate->execute();
    } else {
        $stateCreate->bindValue(':titre',  $titre);
        $stateCreate->bindValue(':commentaire',  $commentaire);
-       $stateCreate->bindValue(':idUser',  $user['idUser']);
-       $stateCreate->bindValue(':idrecette', $recipe['idrecette']);
        $stateCreate->execute();
    }
-   header('Location: /06b1-Fiche_recette.php');
+   header('Location: /fiche.php');
 
 }
 
 
 
+// require_once './isLoggedIn.php';
 
+// $user = isLoggedIn();
 
-
-
-// ------------------------------------------------------------------------------Partie recette
-// $stateRecette = $pdo->prepare('SELECT * FROM recettes WHERE idrecette=:id');
-// $stateIngredient = $pdo->prepare('SELECT * FROM ingredients WHERE idingredient=:id');
-
-// $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-// $idrecette = $_GET['idrecette'] ?? '';
-
-// if (!$idrecette) {
-//     // header('Location: /');
-// } else {
-//     $stateRecette->bindValue(':id', $id);
-//     $stateRecette->execute();
-//     $recette = $stateRecette->fetch();
+// if (!$user) {
+//     header('Location: /connexion.php');
 // }
 
-// if (!$idingredient) {
-//     // header('Location: /');
-// } else {
-//     $stateIngredient->bindValue(':id', $id);
-//     $stateIngredient->execute();
-//     $ingredient = $stateIngredient->fetch();
-// }
+
 
 
 
@@ -148,9 +109,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
 <?php require_once'includes/header.php' ?>
     
-        <!-- <nav class="btn--return">
+        <nav class="btn--return">
             <a href="06b-Recettes.php"><img src="Icons/btn-return-fb.png" alt="return" id="btn-return" width="200px"></a>
-        </nav> -->
+        </nav>
 
         
 
@@ -254,30 +215,26 @@ Légumes dans bocaux.
 
 
 <div class="tchat">
-    <?php foreach ($users as $a ) : ?>
-        <span class="pseudo"><?= $a ['pseudo'] ?></span><br>
-    <?php endforeach; ?>
-
-    <?php foreach ($commentaires as $a) : ?>
-        <span class="date"><?= $a['date'] ?></span>
-        <span><?= $a['titre'] ?></span>
-        <span><?= $a['commentaire'] ?></span><br>
-    <?php endforeach; ?>
-</div>
+                    <?php foreach ($commentaires as $a) : ?>
+                        <!-- <h2><?= $user['username'] ?></h2> -->
+                        <span class="date"><?= $a['date'] ?></span>
+                          <span><?= $a['titre'] ?></span>
+                          <span><?= $a['commentaire'] ?></span>
+                    <?php endforeach; ?>
+                </div>
 
        
 
 <div class="input-container">
-    <form action="/06B1-Fiche_recette.php<?= $id ? "?id=$id" : '' ?>" method="POST">
-    <div class="title_comment">
+    <form action="/fiche.php<?= $id ? "?id=$id" : '' ?>" method="POST">
         <label for="titre">Titre</label>
         <textarea name="titre" id="titre"><?= $titre ?? '' ?></textarea>
-    </div>
-    <div class="commentaire_comment">
+
         <label for="commentaire">Commentaire</label>
         <textarea name="commentaire" id="commentaire"><?= $commentaire ?? '' ?></textarea>
-    </div>
+
         <div class="form-action">
+
             <button class="btn btn-primary"><?= $id ?: 'Publier' ?></button>
         </div>
     </form>

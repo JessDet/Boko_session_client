@@ -32,13 +32,13 @@
 
   <div class="baseline"><img  src="/IMG/BaseLine.png" alt="baseline" width="350px"></div>
 
-  <div class="connect_panier">
+  <div class="connexion_inscription">
     <div class="lien">
         <a href="connexion.php" class="lien2"><img class="connect" src="Icons/user_icon_149851.png" alt="connexion" width="30px"></a>
     </div>
-    <!-- <div class="lien">
-    <a href="08-Panier.php"><img class="panier" src="Icons/panier.png" alt="panier" width="30px"><span class="spanny"></span></a>
-    </div> -->
+    <div class="lien">
+    <a href="profile.php"><img class="panier" src="Icons/form_document_file_icon_147462.png" alt="panier" width="30px"><span class="spanny"></span></a>
+    </div>
 </div>
 
  

@@ -14,18 +14,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$password || !$pseudo) {
         $error = "Données incorrectes";
     } else {
-        $statementUser = $pdo->prepare('SELECT * FROM users WHERE pseudo=:pseudo');
+        $statementUser = $pdo->prepare('SELECT * FROM utilisateur WHERE pseudo=:pseudo');
         $statementUser->bindValue(':pseudo', $pseudo);
         $statementUser->execute();
         $user = $statementUser->fetch();
 
         if ($user && password_verify($password, $user['password'])) {
-            $statementSession = $pdo->prepare('INSERT INTO session VALUES (default, :userid)');
-            $statementSession->bindValue(':userid', $user['id']);
+            $statementSession = $pdo->prepare('INSERT INTO session VALUES (default, :idUser)');
+            $statementSession->bindValue(':idUser', $user['idUser']);
             $statementSession->execute();
             $sessionId = $pdo->lastInsertId();
-            setcookie('session', $sessionId, time() + 60 * 3, '', '', false, true);
-            header('Location: /profile.php');
+            setcookie('session', $sessionId, time() + 60 * 60, '', '', false, true);
+            header('Location: ./profile.php');
         } else {
             echo "WRONG MAIL AND/OR PASSWORD";
         }
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/Inscription.css">
+    <link rel="stylesheet" href="/CSS/connexion.css">
     <link rel="stylesheet" href="/CSS/Header-Footer.css">
     <title>Connexion</title>
 </head>
@@ -52,36 +52,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php require_once'includes/header.php' ?>
 
 <!-- <div class="connect"> -->
-    
+
+
+	<!-- <div class="form-container sign-in-container"> -->
+        
+		
+
 <div class="title-signin">
     <h2>Welcome Back!</h2>
-    <p>Pour rester connecté avec nous, log toi avec tes infos personnelles</p>
+    <p>Pour rester connecté avec nous, log toi avec tes infos personnelles ...</p>
 </div>
-    
 
-<div class="container" id="container">
-	<div class="form-container sign-in-container">
-        <form class="registration" action="/connexion.php" method="POST">
-			<h1>Connexion</h1>
-                
-                   
-                    <input type="text" name="pseudo" id="pseudo" placeholder="pseudo">
-                    <input type="password" name="password" id="password" placeholder="password">
-  
-
-                    <?php if ($error) : ?>
-
-<h1 style="color:red"><?= $error ?></h1>
-
-<?php endif; ?>
-			
-			<button>Connexion</button>
-
-            <!-- <a href="#">Mot de passe perdu ?</a> -->
+<div class="title_connect">
+    <h1 class="titre">Connexion</h1>
+</div>
 
             
-		</form>
-	</div>
+<div class="container" id="container">
+            <form class="registration" action="/connexion.php" method="POST">
+                <!-- <div class="input_connexion"> -->
+                    
+                        <input type="text" name="pseudo" id="pseudo" placeholder="pseudo">
+                        <input type="password" name="password" id="password" placeholder="password">
+                    
+<?php if ($error) : ?>
+<h1 style="color:red"><?= $error ?></h1>
+<?php endif; ?>
+			
+			            <button>Connexion</button>
+
+                        <!-- <a href="#">Mot de passe perdu ?</a> -->
+                <!-- </div> -->
+		    </form>
+	<!-- </div> -->
     
 </div>	
 

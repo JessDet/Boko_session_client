@@ -2,7 +2,7 @@
 
 function isLoggedIn() {
 
-    $pdo = require_once './database.php';
+    $pdo = require './database.php';
 $sessionId = $_COOKIE['session'] ?? '';
 
 
@@ -12,12 +12,17 @@ $sessionId = $_COOKIE['session'] ?? '';
         $statementSession->execute();
         $session = $statementSession->fetch();
         
-        $userStatement = $pdo->prepare('SELECT * FROM users WHERE id=:id');
-        $userStatement->bindValue(':id', $session['user_id']);
+        $userStatement = $pdo->prepare('SELECT * FROM utilisateur WHERE idUser=:id');
+        $userStatement->bindValue(':id', $session['idUser']);
         $userStatement->execute();
         $user = $userStatement-> fetch();
+
+       
+       
     } 
 
     return $user ?? false;
 
 }
+
+

@@ -1,3 +1,4 @@
+
 *{
 	margin: 0;padding: 0;
 	box-sizing: border-box;
@@ -5,31 +6,24 @@
 
 body {
 	margin-top: 15%;
-	/* background-image: linear-gradient(to right top, #373431, #544f4b, #726c66, #928a83, #b4aaa1); */
 	background : #f6f5f7;
+	font-family: 'Allison', cursive;
 }
 
-.Title-subscribe{
-margin-bottom: 10%;
-margin-left: 5%;
-}
+/* .container {
+	display: flex;
+	flex-direction:column;
+	align-items: center;
+	justify-content: space between;
+} */
 
-h1 {
+.titre {
 	text-align: center;
 }
 
 p {
 	line-height: 20px;
 	letter-spacing: 0.5px;
-}
-
-.crea_count_user{
-	margin-bottom: 3%;
-}
-
-input{
-	width: 325px;
-	height: 30px;
 }
 
 button {
@@ -42,17 +36,31 @@ button {
 	padding: 12px 45px;
 	letter-spacing: 1px;
 	cursor: pointer;
-	width: 325px;
-	height: 30px;
-	margin-top: 3%;
+	width: 325px;height: 30px;	
 }
 
-.registration {
+input{
+	width: 325px;
+	height: 30px;
+}
+
+.title-signin {
+    height: 150px;
+	margin-left: 5%;
+}
+
+.inscription {
+    display: flex;
+    flex-direction: column;
+	justify-content: space-evenly;
+    align-items: center;
+	height: 150px;
+}
+
+.registration{
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
+	height: 200px;
 }
-
-
-

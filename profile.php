@@ -1,13 +1,15 @@
 <?php
 
-require_once './isLoggedIn.php';
+require './isLoggedIn.php';
 
 $user = isLoggedIn();
 
 if (!$user) {
-    header ('Location: ./connexion.php');
+    header ('Location: /connexion.php');
 }
 
+
+$pdo = require './database.php';
 
 
 ?>
@@ -19,24 +21,31 @@ if (!$user) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/Inscription.css">
+    <link rel="stylesheet" href="../CSS/profile.css">
     <link rel="stylesheet" href="/CSS/Header-Footer.css">
     <title>Connexion</title>
 </head>
 <body>
 <?php require_once'includes/header.php' ?>
 
+<nav class="log">     
+    <a href="/logout.php/"><img class="logout_icon" src="icons/logout_90894.png" alt="Se déconnecter" ></a>       
+</nav>
+
     <h1>PROFIL</h1>
-    <h2>Hello<?= $user['pseudo'] ?></h2>
+    <h2>Hello <?= $user['pseudo'] ?></h2>
 
 
-    <nav>
-        <a href="/">Accueil</a>
-        
-        <a href="/logout.php/">Se déconnecter</a>
-        
-        <a href="/profile.php/">Profil</a>
-    </nav>
+    <div class="info_profil">
+    <?php foreach ($utilisateur as $a) : ?>
+            <span><?= $a['firstname'] ?></span>
+            <span><?= $a['lastname'] ?></span>
+            <span><?= $a['adress'] ?></span>
+            <span><?= $a['phone'] ?></span>
+            <span><?= $a['email'] ?></span>
+            
+    <?php endforeach; ?>
+</div>
 
 
     

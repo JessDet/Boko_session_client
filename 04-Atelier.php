@@ -24,14 +24,27 @@
 <?php require_once'includes/header.php' ?>
 
 <main>
+
+
+<div class="atelier_presentation">
+  <div class="bloc_detail_atelier">
+    <p class="detail_atelier"><br><br>
+    Plus qu’un atelier, c’est la concrétisation d’une part importante du projet BOKŌ. Avec une vocation plus conviviale, cet espace est parfait pour partager, découvrir, avancer, se motiver, apprendre, déguster, se rencontrer… 
+  Une part du projet remplie d’humanité, d’actions concrètes, véritable créatrice d’instant de vie ♥️
+    </p>
+  </div>
+    <img class="atelier" src="/IMG/081021/Atelier_Boks.jpg" alt="atelier">
+</div>
+
+<div class="agenda_facebook"></div>
+<div class="bloc_agenda">
+  <p>L'agenda des ateliers ...</p><br>
+
+
 <div class="facebook">
-  <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fjessteatime&tabs=events&width=400&height=486&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="400" height="486" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fjessteatime&tabs=timeline&width=500&height=350&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId=421190706012403" width="500" height="350" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
 </div>
-
-<div class="atelier1">
-
 </div>
-
 
 </main>
 
