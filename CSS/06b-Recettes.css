@@ -53,6 +53,8 @@ main {
     position: relative;
     width: 692px;
     margin-bottom: 100px;
+    /* height: 435px;
+    overflow: hidden; */
   }
   
   .card {
