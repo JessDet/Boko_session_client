@@ -5,8 +5,11 @@
 }
 
 body {
-	margin-top: 15%;
+	margin-top: 5%;
 	background : #f6f5f7;
+}
+
+h2{
 	font-family: 'Allison', cursive;
 }
 
@@ -45,6 +48,7 @@ input{
 }
 
 .title-signin {
+	margin-top: 5%;
     height: 150px;
 	margin-left: 5%;
 }

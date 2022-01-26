@@ -1,5 +1,11 @@
 <?php
 
+$pdo = require './database.php';
+
+require './isLoggedIn.php';
+$user = isLoggedIn();
+
+
 ?>
 
 
@@ -24,9 +30,9 @@
 
 
     
-        
-    <main>
+      
 
+<main>
         <div class="presentation">
           <div class="eqpe">
             <h2>L'EQUIPE</h2>

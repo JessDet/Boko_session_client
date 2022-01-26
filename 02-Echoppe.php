@@ -1,5 +1,11 @@
 <?php
 
+$pdo = require './database.php';
+
+require './isLoggedIn.php';
+$user = isLoggedIn();
+
+
 ?>
 
 
@@ -28,6 +34,9 @@
 
 
 <main>
+
+
+
   <div class="intro">
     <h1>La boutique !</h1>
   </div>
@@ -44,11 +53,11 @@
           <a id="btnPopup" href="#popup1"><span>More</span> <i class="fa fa-plus"></i></a>
         </div>
         
-        <div id="popup1" class="overlay">
-          <div class="popup">
+        <div id="popup1" class="overlay1">
+          <div class="popup1">
             <h2>L'EPICERIE</h2>
-            <a class="close" href="#">&times;</a>
-            <div class="content">
+            <a class="close1" href="#">&times;</a>
+            <div class="content1">
               Bienvenue dans la boutique !!!!.
             </div>
           </div>
@@ -68,10 +77,10 @@
     </div>
     
     <div id="popup2" class="overlay">
-      <div class="popup">
+      <div class="popup2">
         <h2>IDEES CADEAUX</h2>
-        <a class="close" href="#">&times;</a>
-        <div class="content">
+        <a class="close2" href="#">&times;</a>
+        <div class="content2">
           Thank to pop me out of that button, but now i'm done so you can close this window.
         </div>
       </div>

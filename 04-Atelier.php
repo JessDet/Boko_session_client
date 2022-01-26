@@ -1,5 +1,11 @@
 <?php
 
+$pdo = require './database.php';
+
+require './isLoggedIn.php';
+$user = isLoggedIn();
+
+
 ?>
 
 
@@ -23,8 +29,21 @@
 
 <?php require_once'includes/header.php' ?>
 
-<main>
 
+
+<!-- <div class="connexion_inscription">
+<div class="lien">
+            <a href="connexion.php" class="connexion"><img class="connect" src="Icons/user_icon.png" alt="connexion" width="40px"></a>
+        </div>
+        <div class="lien">
+        <a href="profile.php"><img class="profil" src="Icons/form_document_file_icon_147462.png" alt="panier" width="33px"><span class="spanny"></span></a>
+        </div>
+</div> -->
+
+<main>
+  <div class="title_atelier">
+    <h1>L'Atelier</h1>
+  </div>
 
 <div class="atelier_presentation">
   <div class="bloc_detail_atelier">

@@ -7,7 +7,7 @@
 
 
 main{
-    margin-top: 8%;
+    margin-top: 3%;
     font-size: 18px;
 }
 
@@ -125,6 +125,8 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background: #f6f5f7;
+    height: 300px;
 }
 
 #img_before_footer {

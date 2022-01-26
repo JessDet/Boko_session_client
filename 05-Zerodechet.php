@@ -1,5 +1,11 @@
 <?php
 
+$pdo = require './database.php';
+
+require './isLoggedIn.php';
+$user = isLoggedIn();
+
+
 ?>
 
 
@@ -27,8 +33,11 @@
 
 <?php require_once'includes/header.php' ?>
 
-<main>
 
+
+
+<main>
+  
 <div class="contenu">
 
   <div class="background">

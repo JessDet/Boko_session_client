@@ -3,25 +3,32 @@
 $pdo = require_once './database.php';
 $errors = '';
 
+require './isLoggedIn.php';
+$user = isLoggedIn();
+
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $_input = filter_input_array(INPUT_POST, [
         'firstname' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
         'lastname' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
+        'birthday' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
         'adress' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
         'phone' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
         'pseudo' => FILTER_SANITIZE_SPECIAL_CHARS,
-        'email' => FILTER_SANITIZE_EMAIL
+        'email' => FILTER_SANITIZE_EMAIL,
+        'avatar' => FILTER_SANITIZE_FULL_SPECIAL_CHARS
     ]);
 
     $firstname = $_input['firstname'] ?? '';
     $lastname = $_input['lastname'] ?? '';
+    $birthday = $_input['birthday'] ?? '';
     $adress = $_input['adress'] ?? '';
     $phone = $_input['phone'] ?? '';
     $pseudo = $_input['pseudo'] ?? '';
     $email = $_input['email'] ?? '';
     $password = $_POST['password'] ?? '';
+    $avatar = $_POST['avatar'] ?? '';
 
-if (!$firstname || !$lastname || !$adress || !$phone || !$pseudo || !$email || !$password) {
+if (!$firstname || !$lastname || !$birthday ||!$adress || !$phone || !$pseudo || !$email || !$password) {
     $errors = "champs obligatoires";
 } else {
     $hashPassword = password_hash($password, PASSWORD_ARGON2I);
@@ -29,20 +36,24 @@ if (!$firstname || !$lastname || !$adress || !$phone || !$pseudo || !$email || !
         DEFAULT,
         :firstname,
         :lastname,
+        :birthday,
         :adress,
         :phone,
         :pseudo,
         :email,
-        :password
+        :password,
+        :avatar
     )');
 
         $statement->bindvalue(':firstname', $firstname);
         $statement->bindvalue(':lastname', $lastname);
+        $statement->bindvalue(':birthday', $birthday);
         $statement->bindvalue(':adress', $adress);
         $statement->bindvalue(':phone', $phone);
         $statement->bindvalue(':pseudo', $pseudo);
         $statement->bindvalue(':email', $email);
         $statement->bindvalue(':password', $hashPassword);
+        $statement->bindvalue(':avatar', $avatar);
         $statement->execute();
 
         header('Location: /connexion.php');
@@ -69,6 +80,8 @@ if (!$firstname || !$lastname || !$adress || !$phone || !$pseudo || !$email || !
     <title>Inscription</title>
 </head>
 <body>
+
+
 <?php require_once'includes/header.php' ?>
 <div class="Title-subscribe">
     <h2>Hello, Friend!</h2>
@@ -85,6 +98,7 @@ if (!$firstname || !$lastname || !$adress || !$phone || !$pseudo || !$email || !
 			
                 <input type="text" placeholder="firstname" name="firstname"><br>
                 <input type="text" placeholder="lastname" name="lastname"><br>
+                <input type="text" placeholder="birthday AAAA-MM-JJ" name="birthday"><br>
                 <input type="text" placeholder="adress" name="adress"><br>
                 <input type="text" placeholder="phone" name="phone"><br>
                 <input type="text" placeholder="pseudo" name="pseudo"><br>

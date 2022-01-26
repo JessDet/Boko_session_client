@@ -14,10 +14,11 @@
     margin-top: 120px;
   }
 
+ 
 main {
     height: auto;
     width: 100%;
-    margin-top: 200px;
+    margin-top: 120px;
     margin-bottom: 200px;
     color: #474544;
 }
@@ -29,6 +30,7 @@ main {
     font-family: 'Allison', cursive;
     font-size: 50px;
     color: #474544;
+    height: 30px;
 }
 
 
@@ -45,7 +47,7 @@ main {
     background-color: white;
     border: 1px solid #b4b4b4 ;
     width: 300px;
-    height: 500px;
+    height: 550px;
     box-shadow: 0 2px 25px 2px #b4aaa1, 0 2px 50px 2px #b4aaa1, 0 0 100px 3px #b4aaa138;
 }
 

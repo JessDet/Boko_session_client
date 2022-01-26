@@ -10,10 +10,11 @@
 
 main {
   /* display: flex; */
-  margin-top: 5em;
+  margin-top: 1em;
   overflow-x: hidden;
 
 }
+
 
 
 /* ------------------title------------- */
@@ -135,7 +136,7 @@ main {
   cursor: pointer;
   }
   #btnPopup:hover {
-  width: 75px;
+  width: 70px;
   background: rgba(0,0,0,0.3);
   background-color: rgb(192, 192, 192);
   }
@@ -185,7 +186,8 @@ main {
   visibility: visible;
   opacity: 1;
 }
-/* .popup {
+/* ---------------------------------popup1  */
+.gridy-2 .gridyhe-1 .gridinfo .overlay1 .popup1 {
   margin: 70px auto;
   padding: 20px;
   background: #fff;
@@ -193,21 +195,20 @@ main {
   width: 70%;
   position: static;
   transition: all 5s ease-in-out;
-  margin-top: 350px;
-} */
+  /* margin-top: 350px; */
+}
+.gridy-2 .gridyhe-1 .popup1{
 
-.popup{
-  position: fixed;
-  position:static;
+  position:absolute;
   top: 0;
   z-index: 10;
-  margin-top: 350px;
+  /* margin-top: 350px; */
   padding: 20px;
   background: #fff;
   border-radius: 5px;
   width: 70%;
 }
-/* .popup .close {
+.gridy-2 .gridyhe-1 .gridinfo .popup1  .close1 {
   position: absolute;
   top: 20px;
   right: 30px;
@@ -217,13 +218,14 @@ main {
   text-decoration: none;
   color: #333;
 }
-.popup .close:hover {
+.gridy-2 .gridyhe-1 .gridinfo .popup1  .close1:hover {
   color: #474544;
 }
-.popup .content {
+.gridy-2 .gridyhe-1 .popup1 .content1{
   max-height: 30%;
   overflow: auto;
-}  */
+} 
+/* ---------------------------------popup2  */
 
 /* @media screen and (max-width: 700px){
   .box{

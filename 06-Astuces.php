@@ -1,5 +1,11 @@
 <?php
 
+$pdo = require './database.php';
+
+require './isLoggedIn.php';
+$user = isLoggedIn();
+// 
+
 ?>
 
 <!DOCTYPE html>
@@ -26,9 +32,10 @@
 <?php require_once'includes/header.php' ?>
 
 
+
 <main>
 
-  
+ 
 
 <ul class="cards">
   <li class="cards__item">

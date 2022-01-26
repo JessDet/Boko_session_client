@@ -3,6 +3,9 @@
 $pdo = require_once './database.php';
 $error = '';
 
+require './isLoggedIn.php';
+$user = isLoggedIn();
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_input = filter_input_array(INPUT_POST, [
         'pseudo' => FILTER_SANITIZE_FULL_SPECIAL_CHARS
@@ -51,12 +54,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 <?php require_once'includes/header.php' ?>
 
-<!-- <div class="connect"> -->
-
-
-	<!-- <div class="form-container sign-in-container"> -->
-        
-		
 
 <div class="title-signin">
     <h2>Welcome Back!</h2>
@@ -82,9 +79,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			            <button>Connexion</button>
 
                         <!-- <a href="#">Mot de passe perdu ?</a> -->
-                <!-- </div> -->
+                
+<!-- </div>  -->
 		    </form>
-	<!-- </div> -->
+	
     
 </div>	
 
@@ -93,7 +91,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <a href="inscription.php"><button>S'inscrire</button></a>
 </div>
 
-<!-- </div>  -->
 
 <?php require_once'includes/footer.php' ?>
 </body>

@@ -27,8 +27,7 @@ $user = isLoggedIn();
 
 <?php require_once'includes/header.php' ?>
 
-
-    
+   
     
         <main>
         <div class="blocs_anim">

@@ -7,22 +7,82 @@
     height: auto;
       }
 
-body {
-        margin-top: 20%;
-        background : #f6f5f7;
-    }
-
-.log {
-    margin-top: 120px;
+.top_page{
     display: flex;
-    justify-content: end;
-}
+    justify-content: space-between;
+    /* width: 80%; */
+      }
+
+
+.img_feuilles {
+    position: relative;
+    opacity: 0.3;
+    margin-top: 7%;
+    width: 600px;
+} 
 
 h1 {
-    font-family: 'Allison', cursive;
+    margin-top: 15%;
+    margin-right: 35%;
+    width: 50px;
 }
 
-.logout_icon {
-    width: 40px;
-    margin-right: 50%;
+.hello{
+    background: #b4aaa1;
+    width: 300px;
+    height: 100px;
+    color: #f6f5f7;  
+    margin-top: 2%;
+    margin-left: 10%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-block;
+}
+
+h2{
+    padding-top: 35px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 15px;
+}
+
+.modif-profil{
+margin-top: 3%;
+display: flex;
+justify-content: end;
+color: #b4aaa1;
+font-style: italic;
+
+}
+
+
+.info_coordonnees {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 300px;
+    width: 300px;
+    margin-left: 20%;
+    position: relative;
+    
+}
+
+.detail_info_profil {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.avatar{
+    margin-right: 10%;
+    z-index: 2;
+}
+
+h3{
+    margin-left: 5%;
+}
+
+.favoris{
+    margin-top: 10%;
 }

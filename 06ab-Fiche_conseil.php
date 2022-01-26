@@ -1,5 +1,11 @@
 <?php
 
+$pdo = require './database.php';
+
+require './isLoggedIn.php';
+$user = isLoggedIn();
+
+
 ?>
 
 
@@ -26,9 +32,10 @@
     
 
 <?php require_once'includes/header.php' ?>
+
+
+
 <main>
-
-
     <div class="timing">
         <h1 class="timing_recipe">Les temps de cuisson</h1>
     </div>
