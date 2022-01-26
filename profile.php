@@ -13,12 +13,12 @@ $files = [];
 
 // ----------------pour ajout avatar 
 
-$statement  = $pdo->prepare('SELECT avatar FROM utilisateur ');
+// $statement  = $pdo->prepare('SELECT avatar FROM utilisateur ');
 
-$statement->execute();
-$files = $statement->fetchAll();
+// $statement->execute();
+// $files = $statement->fetchAll();
 
-print_r($files);
+// print_r($files);
 
 
 
@@ -38,7 +38,7 @@ print_r($files);
 </head>
 
 <body>
-<!-- <?php require_once 'includes/header.php' ?> -->
+<?php require_once 'includes/header.php' ?>
 
 <div class="top_page">
 
@@ -79,13 +79,14 @@ print_r($files);
         </div>
         <?php endforeach; ?>
     </div>
+    </div>
         <br>  
     <!-- ---------------modif profil      -->
         <div class="modif-profil">
         <a href="/modif_profil.php">Modifier le profil</a><br>
         </div>
     
-    </div>
+    
 </main>
 
 <div class="favoris">
