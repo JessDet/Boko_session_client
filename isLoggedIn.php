@@ -17,8 +17,7 @@ $sessionId = $_COOKIE['session'] ?? '';
         $userStatement->execute();
         $user = $userStatement-> fetch();
 
-       
-       
+              
     } 
 
     return $user ?? false;

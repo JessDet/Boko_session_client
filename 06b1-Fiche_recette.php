@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
 
 
-    header('Location: /06b-Recettes.php');
+    // header('Location: /06b-Recettes.php');
 }
 
 
@@ -220,11 +220,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                     <h2>Préparation</h2>
                     <div class="txt_deroule_prepa">
                         <?= $recette['preparation'] ?>
-<<<<<<< HEAD
                         <!-- <p>
-=======
-                        <!-- <pre>
->>>>>>> 3a7add3d2ee8d84a0bdde25bfea796e419877273
 Dans une casserole, faire bouillir 1 volume d’eau avec 1/2 volume de vinaigre de cidre et 1/2 volume de sucre.
 En parallèle, râper les légumes avec une râpe manuelle en inox ou les découper en morceaux (selon le légume 
 choisi et son envie).
@@ -238,11 +234,7 @@ Faire mariner 3 jours au réfrigérateur avant de déguster
 Faire bouillir eau vinaigre sucre.
 Stériliser bocaux.
 Légumes dans bocaux.
-<<<<<<< HEAD
                 </p> -->
-=======
-                </pre> -->
->>>>>>> 3a7add3d2ee8d84a0bdde25bfea796e419877273
                     </div>
                 </div>
             </div>
@@ -258,10 +250,6 @@ Légumes dans bocaux.
             <span class="titre"><?= $a['titre'] ?></span>
             <span class="comment"><?= $a['commentaire'] ?></span><br>
             <span class="date"><?= $a['date'] ?></span>
-<<<<<<< HEAD
-            <!-- <?php  ?> -->
-=======
->>>>>>> 3a7add3d2ee8d84a0bdde25bfea796e419877273
             <span class="pseunote"><?= $a['pseudo'] . " | Note : " . $a['note'] ?></span>
         <?php endforeach; ?>
     </div>
@@ -269,12 +257,9 @@ Légumes dans bocaux.
 
 
     <div class="input-container">
-<<<<<<< HEAD
         <div class="titre-bloc-comm">
         <h3>Laisser un commentaire</h3><br>
         </div>
-=======
->>>>>>> 3a7add3d2ee8d84a0bdde25bfea796e419877273
         <form action="/06B1-Fiche_recette.php<?= $id ? "?id=$id" : '' ?>" method="POST">
             <div class="title_comment">
                 <label for="titre">Titre</label>

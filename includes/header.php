@@ -3,6 +3,8 @@
 
 $pdo = require_once './database.php';
 
+
+
 ?>
 
 
@@ -44,39 +46,10 @@ $pdo = require_once './database.php';
         <?php else : ?>
           <a href="connexion.php" class="connexion"><img class="connect" src="Icons/user_icon.png" alt="connexion" width="40px"></a>
 
-          <?php endif; ?> 
+        <?php endif; ?> 
   </div>
  
 </nav>
 
 <script src="/JS/menuBuger.js"></script>
 </header>
-
-<!-- <div class="menu">
-
-<a href="/"><img src="/img/logo3.png" alt=""></a>
-<a href=""><span class="un">About</span></a>
-
-<?php if ($user) : ?>
-    <a href="/profile.php/"><span class="un">Profil</span></a>
-    <a href="/logout.php/"><span class="un">Déconnexion</span></a>
-
-<?php else : ?>
-
-     <a href="/login.php"><span class="un">Connexion</span></a>
-     <a href="/register.php/"><span class="un">Inscription</span></a>
-
-<?php endif; ?> -->
-
-
-
-
-
-
-
-
-
-
-    
-
-

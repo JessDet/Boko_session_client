@@ -82,7 +82,7 @@ if (!$firstname || !$lastname || !$birthday ||!$adress || !$phone || !$pseudo ||
 <body>
 
 
-<?php require_once'includes/header.php' ?>
+<?php require_once 'includes/header.php' ?>
 <div class="Title-subscribe">
     <h2>Hello, Friend!</h2>
     <p>Entre tes données personnelle et commence la journée avec nous ...</p>				
@@ -106,14 +106,14 @@ if (!$firstname || !$lastname || !$birthday ||!$adress || !$phone || !$pseudo ||
                 <input type="password" placeholder="password" name="password"><br>
 
                 <?php if($errors) : ?>
-                    <h1 style="color:red"><?=$errors ?></h1>
+                    <h1 style="color:red"><?= $errors ?></h1>
                 <?php endif; ?>
         
 			<button>S'inscrire</button>
 		</form>
 	<!-- </div> -->
     </div>
-    <?php require_once'includes/footer.php' ?>
+    <?php require_once 'includes/footer.php' ?>
 </body>
 
 </html>

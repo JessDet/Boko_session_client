@@ -5,7 +5,7 @@
 }
 
 body {
-	margin-top: 5%;
+	margin-top: 10%;
 	background : #f6f5f7;
 }
 
@@ -40,6 +40,7 @@ button {
 	letter-spacing: 1px;
 	cursor: pointer;
 	width: 325px;height: 30px;	
+	
 }
 
 input{

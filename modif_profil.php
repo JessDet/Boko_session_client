@@ -109,7 +109,7 @@ WHERE idUser=:id
 </head>
 
 <body>
-<!-- <?php require_once 'includes/header.php' ?> -->
+<?php require_once 'includes/header.php' ?>
 
 <div class="top_page">
 
