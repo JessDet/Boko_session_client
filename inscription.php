@@ -81,7 +81,6 @@ if (!$firstname || !$lastname || !$birthday ||!$adress || !$phone || !$pseudo ||
 </head>
 <body>
 
-
 <?php require_once 'includes/header.php' ?>
 <div class="Title-subscribe">
     <h2>Hello, Friend!</h2>
@@ -115,6 +114,5 @@ if (!$firstname || !$lastname || !$birthday ||!$adress || !$phone || !$pseudo ||
     </div>
     <?php require_once 'includes/footer.php' ?>
 </body>
-
 </html>
 
